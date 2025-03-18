@@ -32,6 +32,9 @@ class Program
                 case "5":
                     SearchProduct();
                     break;
+                case "6":
+                    Console.WriteLine("Exitting...");
+                    return;
                 default:
                     Console.WriteLine("Invalid option, try again.");
                     break;
