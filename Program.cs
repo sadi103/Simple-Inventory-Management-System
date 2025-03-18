@@ -26,6 +26,9 @@ class Program
                 case "3":
                     EditProduct();
                     break;
+                case "4":
+                    DeleteProduct();
+                    break;
                 default:
                     Console.WriteLine("Invalid option, try again.");
                     break;
@@ -68,10 +71,22 @@ class Program
         inventory.AddProduct(new Product(name, quantity, price));
     }
 
-    static void EditProduct()
+    static string GetProductName()
     {
         Console.Write("Enter product name: ");
-        string name = Console.ReadLine().Trim();
+        return Console.ReadLine().Trim();
+    }
+
+    static void EditProduct()
+    {
+        string name = GetProductName();
         inventory.EditProduct(name);
     }
+
+    static void DeleteProduct()
+    {
+        string name = GetProductName();
+        inventory.DeleteProduct(name);
+    }
+
 }

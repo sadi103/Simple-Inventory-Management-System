@@ -66,5 +66,19 @@ namespace FTS.SimpleInventoryManagementSystem
 
             Console.WriteLine("Product updated successfully!");
         }
+        
+        public void DeleteProduct(string name)
+        {
+            int index = products.FindIndex(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+            
+            if (index != -1)
+            {
+                products.RemoveAt(index);
+                Console.WriteLine($"Successfully deleted the {name.ToLower()} product");
+            } else
+            {
+                Console.WriteLine("Product was not found");
+            }
+        }
     }
 }
