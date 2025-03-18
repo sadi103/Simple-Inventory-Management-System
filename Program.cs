@@ -20,7 +20,9 @@ class Program
                 case "1":
                     AddProduct();
                     break;
-
+                case "2":
+                    inventory.ViewProducts();
+                    break;
                 default:
                     Console.WriteLine("Invalid option, try again.");
                     break;
@@ -54,12 +56,13 @@ class Program
         Console.Write("Enter product name: ");
         string name = Console.ReadLine();
 
-        Console.Write("Enter product price: ");
-        decimal price = Convert.ToDecimal(Console.ReadLine());
-
         Console.Write("Enter product quantity: ");
         int quantity = Convert.ToInt32(Console.ReadLine());
 
+        Console.Write("Enter product price: ");
+        decimal price = Convert.ToDecimal(Console.ReadLine());
+
         inventory.AddProduct(new Product(name, quantity, price));
     }
+
 }

@@ -15,5 +15,22 @@ namespace FTS.SimpleInventoryManagementSystem
             products.Add(product);
             Console.WriteLine("Product added successfully!");
         }
+
+        public void ViewProducts()
+        {
+            Console.WriteLine();
+
+            if (products.Count == 0)
+            {
+                Console.WriteLine("No products in inventory.");
+                return;
+            }
+
+            Console.WriteLine("Inventory List:");
+            foreach (var product in products)
+            {
+                Console.WriteLine(product);
+            }
+        }
     }
 }
