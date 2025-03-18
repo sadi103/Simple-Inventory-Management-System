@@ -9,7 +9,7 @@ namespace FTS.SimpleInventoryManagementSystem
     public class Product
     {
         private string name = String.Empty;
-        public int AmountInStock { get; init; }
+        public int AmountInStock { get; set; }
 
         public decimal Price { get; set; }
 

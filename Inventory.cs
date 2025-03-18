@@ -32,5 +32,39 @@ namespace FTS.SimpleInventoryManagementSystem
                 Console.WriteLine(product);
             }
         }
+
+        public void EditProduct(string name)
+        {
+            Product? product = products.Find(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+
+            if (product == null)
+            {
+                Console.WriteLine("Product not found.");
+                return;
+            }
+
+            Console.Write($"Current product name: {product.Name}. Enter new name (or press enter to keep the same): ");
+            string newName = Console.ReadLine();
+            if (!string.IsNullOrWhiteSpace(newName))
+            {
+                product.Name = newName;
+            }
+
+            Console.Write($"Current product quantity: {product.AmountInStock}. Enter new quantity (or press enter to keep the same): ");
+            string newQuantityInput = Console.ReadLine();
+            if (!string.IsNullOrWhiteSpace(newQuantityInput) && int.TryParse(newQuantityInput, out int newQuantity))
+            {
+                product.AmountInStock = newQuantity;
+            }
+
+            Console.Write($"Current prdouct price: {product.Price}. Enter new price (or press enter to keep the same): ");
+            string newPriceInput = Console.ReadLine();
+            if (!string.IsNullOrWhiteSpace(newPriceInput) && decimal.TryParse(newPriceInput, out decimal newPrice))
+            {
+                product.Price = newPrice;
+            }
+
+            Console.WriteLine("Product updated successfully!");
+        }
     }
 }
