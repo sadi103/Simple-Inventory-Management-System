@@ -29,6 +29,9 @@ class Program
                 case "4":
                     DeleteProduct();
                     break;
+                case "5":
+                    SearchProduct();
+                    break;
                 default:
                     Console.WriteLine("Invalid option, try again.");
                     break;
@@ -89,4 +92,9 @@ class Program
         inventory.DeleteProduct(name);
     }
 
+    static void SearchProduct()
+    {
+        string name = GetProductName();
+        inventory.SearchProduct(name);
+    }
 }

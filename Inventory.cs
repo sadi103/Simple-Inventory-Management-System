@@ -80,5 +80,19 @@ namespace FTS.SimpleInventoryManagementSystem
                 Console.WriteLine("Product was not found");
             }
         }
+
+        public void SearchProduct(string name)
+        {
+            Product? product = products.Find(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+
+            if (product == null)
+            {
+                Console.WriteLine("Product not found.");
+                return;
+            }
+
+            Console.WriteLine("\nSearch Result:");
+            Console.WriteLine(product);
+        }
     }
 }
